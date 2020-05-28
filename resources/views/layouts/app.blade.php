@@ -8,7 +8,7 @@
 	<meta name="keywords" content="college, education, institute, responsive, school, teacher, template, university">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Holy field Private School</title>
-	<link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+	<link rel="shortcut icon" href="images/logox.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset ('css/assets/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -94,7 +94,7 @@
 			<div class="footer-bottom-inner">
 				<div class="row">
 					<div class="col-md-6 col-sm-12 footer-no-padding">
-						<p>&copy; Holy Field Private School | All rights reserved</p>
+						<p> Holy Field Private School &copy; <script> var date= new Date; document.write(date.getFullYear())</script> | All rights reserved</p>
 					</div>
 					<div class="col-md-6 col-sm-12 footer-no-padding">
 						<ul class="list-unstyled footer-menu text-right">

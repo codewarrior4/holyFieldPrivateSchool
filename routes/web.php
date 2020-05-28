@@ -17,11 +17,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('/index','indexController');
-Route::resource('/contact','contactController');
-Route::resource('/about','aboutController');
-Route::resource('/admission','admission');
-Route::resource('/blog','blogController');
-Route::resource('/event','eventController');
-Route::resource('/gallery','galleryController');
-Route::resource('/teacher','teachersController');
+//
+Route::resource('index','IndexController');
+Route::resource('zeus','AdminIndexController');
+Route::get('zeus/contact','AdminIndexController@show');
+Route::resource('contact','ContactController');
+Route::resource('about','AboutController');
+Route::resource('admission','admission');
+Route::resource('blog','BlogController');
+Route::resource('event','EventController');
+Route::resource('gallery','GalleryController');
+Route::resource('teacher','TeachersController');
+Route::resource('adminblog', 'NewsController');
+// Route::get('adminblog/{id}/edit','NewsController@edit');

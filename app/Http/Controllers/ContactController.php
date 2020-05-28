@@ -37,6 +37,33 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
+        $name=$request->input('name');
+        $subject=$request->input('subject');
+        $email=$request->input('email');
+        $message=$request->input('message');
+
+        if ($name== "" || $subject =="" || $email=="" || $message=="")
+        {
+            return  redirect()->route('contact', "<script>alert('Fields cannot appear blank');</script>");
+        }
+        else
+        {
+
+           $contact= contact::create([
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            'subject'=>$request->input('subject'),
+            'message'=>$request->input('message'),
+        ]);
+
+            if ($contact)
+            {
+            return  redirect()->route('contact.index', "<script>alert('Thanks for contacting us... Your message has been recieved');</script>");
+
+                return "<script>alert('Thanks for contacting us')</script";
+            }
+        }
+
     }
 
     /**
@@ -47,8 +74,9 @@ class ContactController extends Controller
      */
     public function show(contact $contact)
     {
-        //
+
     }
+
 
     /**
      * Show the form for editing the specified resource.

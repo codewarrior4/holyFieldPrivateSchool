@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse edu-nav main-menu" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
 
-                            <li><a href="/index"><img src="images/logo.jpg" width="80" height="80" alt=""></a></li>
+                            <li><a href="/index"><img src="images/logox.png" width="130" height="130" alt=""></a></li>
                             <li><a data-scroll="" href="/index">Home</a></li>
                             <li><a data-scroll="" href="/admission">Admission</a></li>
                             <li><a data-scroll="" href="/teacher">Teachers</a></li>
@@ -33,6 +33,8 @@
                             <li><a data-scroll href="/blog">Blog</a></li>
                             <li><a data-scroll href="/about">About</a></li>
                             <li><a data-scroll href="/contact">Contact</a></li>
+						<li style="display:none"><a data-scroll href="/contact">Contact</a></li>
+
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container -->

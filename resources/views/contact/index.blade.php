@@ -24,7 +24,7 @@
 				<div class="collapse navbar-collapse edu-nav main-menu" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 
-                        <li><a href="/index"><img src="images/logo.jpg" width="80" height="80" alt=""></a></li>
+                        <li><a href="/index"><img src="images/logox.png" width="130" height="130" alt=""></a></li>
 						 <li><a data-scroll="" href="/index">Home</a></li>
                          <li><a data-scroll="" href="/admission">Admission</a></li>
 						<li><a data-scroll="" href="/teacher">Teachers</a></li>
@@ -33,6 +33,7 @@
 						<li><a data-scroll href="/blog">Blog</a></li>
 						<li><a data-scroll href="/about">About</a></li>
 						<li><a data-scroll href="/contact">Contact</a></li>
+						<li style="display:none"><a data-scroll href="/contact">Contact</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container -->
@@ -108,26 +109,27 @@
 
                     <div id="contact">
                         <div id="message"></div>
-                        <form method="post" action="http://ecologytheme.com/theme/eduread/contact.php" name="contactform" id="contactform">
+                        <form method="post" action="{{route('contact.store')}}" >
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                                        <input type="text" required class="form-control" placeholder="Name" name="name" id="name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                                        <input type="email" required class="form-control" placeholder="Email" name="email" id="email">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject" name="subject" id="subject">
+                                        <input type="text" class="form-control" placeholder="Subject" required name="subject" id="subject">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="6" placeholder="Message" name="comments" id="comments"></textarea>
+                                        <textarea class="form-control" rows="6" placeholder="Message" required name="message" id="comments"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
