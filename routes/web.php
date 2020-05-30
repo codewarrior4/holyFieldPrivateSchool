@@ -29,4 +29,5 @@ Route::resource('event','EventController');
 Route::resource('gallery','GalleryController');
 Route::resource('teacher','TeachersController');
 Route::resource('adminblog', 'NewsController');
-// Route::get('adminblog/{id}/edit','NewsController@edit');
+Route::resource('adminevent', 'adminEventController');
+Route::resource('admingallery', 'admingalleryController');

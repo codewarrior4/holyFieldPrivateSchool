@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\index;
+use App\news;
+use App\event;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -15,7 +17,9 @@ class IndexController extends Controller
     public function index()
     {
         //
-        return view('index');
+        $newss=news::latest()->take(3)->get();
+        $eventss=event::latest()->take(3)->get();
+        return view('index',['newss'=>$newss,'eventss'=>$eventss]);
     }
 
     /**

@@ -1,14 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
-<body class="event-01">
+<body class="event-details-1">
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-
-
-    <header id="header">
+ <header id="header">
         <div class="header-body">
             <nav class="navbar edu-navbar bg-light" >
                 <div class="container">
@@ -24,7 +21,7 @@
                     <div class="collapse navbar-collapse edu-nav main-menu" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
 
-                            <li><a href="/index"><img src="images/logox.png" width="130" height="130" alt=""></a></li>
+                            <li><a href="/index"><img src="../images/logox.png" width="130" height="130" alt=""></a></li>
                             <li><a data-scroll="" href="/index">Home</a></li>
                             <li><a data-scroll="" href="/admission">Admission</a></li>
                             <li><a data-scroll="" href="/teacher">Teachers</a></li>
@@ -44,59 +41,54 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="intro-text ">
-                            <h1>School Events</h1>
-                            <p><span><a href="/index">Home <i class="fa fa-angle-right"></i></a></span> <span class="b-active">School Events</span></p>
+                            <h1> School News</h1>
+                            <p><span><a href="/index">Home <i class="fa fa-angle-right"></i></a></span> <span class="b-active">Blog</span></p>
                         </div>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div>
-    </header>
+</header>
 
-<section class="events-list-03">
+<div class="event-details">
 	<div class="container">
-		<div class="row event-body-content">
-			@foreach ($lists as $events)
-            <div class="col-sm-12 events-full-box">
-				<div class="events-single-box">
-					<div class="row">
-						<div class="col-sm-5">
-							<img src="/{{ $events->image }}" alt="" class="img-responsive">
+		<div class="row">
+			<div class="col-sm-12 post_left-side">
+				<div class="row">
+					<div class="col-sm-12 ">
+						<div class="post--box">
+							<img src="/{{ $blog->image }}" alt="" class="img-responsive">
 						</div>
 
-						<div class="col-sm-7 event-info">
-							<h3>{{ $events->title }}</h3>
-							<p class="events-time">
-								<span>
-									<i class="fa fa-calendar event-icon"></i>
-									{{ $events->date }}
-								</span>
-								<span>
-									<i class="fa fa-clock-o event-icon"></i>
-									{{ $events->time }}
-								</span>
-								<span>
-									<i class="fa fa-map-marker event-icon"></i>
-									{{ $events->location }}
-								</span>
-							</p>
+					</div>
+					<div class="col-sm-12">
+						<div class="description-content">
+							<div class="description-heading">
+								<h3><a href="#">{{ $blog->title }}</a></h3>
+								<p>
+									<span><i class="fa fa-calendar"></i>{{ $blog->created_at }}</span>
+									<span><i class="fa fa-user"></i>Posted by {{ $blog->poster }}</span>
+								</p>
+							</div>
+							<div class="description-text">
+								<div class="row">
 
-							<p>{!! $events->detail !!}</p>
-
-
+									<div class="col-sm-11">
+										<div class="description-text-right">
+											<p class="text-justify">{!! $blog->details !!}</p>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
+
+
 				</div>
 			</div>
-            @endforeach
 
 
-		</div>
-		<div class="row">
-			{{ $lists->links() }}
 		</div>
 	</div>
-</section>
-
-
+</div>
 @endsection

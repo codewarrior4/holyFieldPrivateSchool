@@ -15,7 +15,8 @@ class GalleryController extends Controller
     public function index()
     {
         //
-        return view('gallery');
+        $galleries=gallery::latest()->paginate(12);
+        return view('gallery',['galleries'=>$galleries]);
     }
 
     /**

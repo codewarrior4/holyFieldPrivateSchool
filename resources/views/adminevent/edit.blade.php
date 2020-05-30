@@ -39,31 +39,37 @@
     <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-            <form action="{{ route('adminblog.update',[$news->id]) }}" method="POST">
+            <form action="{{ route('adminevent.update',[$event->id]) }}" method="POST" >
                 @csrf
                 <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="id" value={{ $news->id }}>
+                <input type="hidden" name="id" value={{ $event->id }}>
                 <div class="form-group">
-                    <label for="title">News Title</label>
-                    <input type="text" name="title" required id="" value="{{ $news->title }}" class="form-control">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="my-input">News Details</label>
-                   <textarea name="details" class="summernote" required cols="30" rows="10">{{ $news->details }}</textarea>
+                    <label for="title">Event Title</label>
+                    <input type="text" required name="title" value={{ $event->title }} id="" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="title">Added By: </label>
-                   <select name="poster" required class="form-control">
-                    <option value="{{ $news->poster }}">{{ $news->poster }}</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Student">Student</option>
-                   </select>
+                    <label for="my-input">Event Details</label>
+                   <textarea name="details" required class="summernote" cols="30" rows="10">{!! $event->detail !!}</textarea>
                 </div>
+
                 <div class="form-group">
-                    <input type="submit" value="Update News" class="btn btn-primary">
+                    <label for="title">Event Location</label>
+                    <input type="text" required name="location" value="{{ $event->location }}" id="" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Event Date</label>
+                    <input type="date" required name="date" value="{{ $event->date }}" id="" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Event Time</label>
+                    <input type="text" required name="time" value="{{ $event->time }}" placeholder="7am - 3pm" id="" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Udpate Event Details" class="btn btn-primary">
                 </div>
             </form>
 

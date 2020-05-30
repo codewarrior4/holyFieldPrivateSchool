@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Events;
 use Illuminate\Http\Request;
+use App\gallery;
 
-class EventsController extends Controller
+class admingalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,8 @@ class EventsController extends Controller
     public function index()
     {
         //
+        $galleries=gallery::latest()->paginate(12);
+        return view('admingallery.index',['galleries'=>$galleries]);
     }
 
     /**
@@ -25,6 +27,8 @@ class EventsController extends Controller
     public function create()
     {
         //
+        return view('admingallery.create');
+
     }
 
     /**
@@ -36,15 +40,33 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        $image = $request->file('image');
+        request()->validate(['caption'=>'required']);
+        $caption=$request->input('caption');
+
+
+        $path= date('YmdHis') . "." . $image->getClientOriginalName();
+        $destinationPath = 'images/newsimages/';
+        $fullpath=$destinationPath.$path;
+
+        $gallery=gallery::Create([
+            'caption'=>$caption,'image'=>$fullpath]);
+
+        if($gallery)
+        {
+            $image->move($destinationPath,$path);
+            $galleries=gallery::latest()->paginate(12);
+            return view('admingallery.index',['galleries'=>$galleries]);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Events $events)
+    public function show($id)
     {
         //
     }
@@ -52,10 +74,10 @@ class EventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Events $events)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +86,10 @@ class EventsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Events $events)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +97,10 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Events $events)
+    public function destroy($id)
     {
         //
     }

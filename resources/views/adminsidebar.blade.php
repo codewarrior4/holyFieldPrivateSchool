@@ -48,10 +48,10 @@
                     <div class="sidebar-submenu">
                         <ul>
                             <li>
-                                <a href="sellers.php">Add Events</a>
+                                <a href="adminevent/create">Add Events</a>
                             </li>
                             <li>
-                                <a href="approvedsellers.php">Upcoming Events</a>
+                                <a href="/adminevent">Upcoming Events</a>
                             </li>
 
                         </ul>
@@ -67,10 +67,10 @@
                     <div class="sidebar-submenu">
                         <ul>
                             <li>
-                                <a href="food.php">Add Image to Gallery</a>
+                                <a href="/admingallery/create">Add Image to Gallery</a>
                             </li>
                             <li>
-                                <a href="approvedfood.php">View Gallery</a>
+                                <a href="/admingallery">View Gallery</a>
                             </li>
 
                         </ul>

@@ -182,71 +182,23 @@
 		</div>
 
 		<div class="row courses-r-margin-bottom">
-			<div class="col-sm-4 single-courses-box">
+			@foreach ($eventss as $events)
+            <div class="col-sm-4 single-courses-box">
 			    <div class="single-courses">
 					<a href="#">
 						<div class="courses-img">
-							<img src="images/lekki.jpg" alt="" class="img-responsive">
+							<img src="/{{ $events->image }}" style="height:200px;" height="200">
 						</div>
 					</a>
-					<div class="courses-price">
-						<ul class="list-unstyled">
 
-							{{-- <li class="price-red">
-						 	 	<span> <del>N</del> 4,000 </span>
-						 	 	<div class="base"></div>
-							</li> --}}
-						</ul>
-					</div>
 					<div class="courses-content">
-						<h3><a href="#">School excursion</a></h3>
-						<p>Trip to Lekki Conservation Center.</p>
+						<h3><a href="#">{{ $events->title }}</a></h3>
 					</div>
 				</div><!-- Ends: .single courses -->
 			</div>
 
-            <div class="col-sm-4 single-courses-box">
-			    <div class="single-courses">
-					<a href="#">
-						<div class="courses-img">
-							<img src="images/cowbell.jpg" alt="" class="img-responsive">
-						</div>
-					</a>
-					<div class="courses-price">
-						<ul class="list-unstyled">
+            @endforeach
 
-							{{-- <li class="price-red">
-						 	 	<span> Free</span>
-						 	 	<div class="base"></div>
-							</li> --}}
-						</ul>
-					</div>
-					<div class="courses-content">
-						<h3><a href="#">Cowbell Mathematics Competition</a></h3>
-						<p>The school is participating in a cowbell competition for the junior category.</p>
-					</div>
-				</div><!-- Ends: .single courses -->
-            </div>
-
-            <div class="col-sm-4 single-courses-box">
-			    <div class="single-courses">
-					<a href="#">
-						<div class="courses-img">
-							<img src="images/interhouse.jpg" alt="" class="img-responsive">
-						</div>
-					</a>
-					<div class="courses-price">
-						<ul class="list-unstyled">
-
-
-						</ul>
-					</div>
-					<div class="courses-content">
-						<h3><a href="#">Inter House Sport</a></h3>
-						<p>The school's inter house sport is coming up on the 3 <sup>rd</sup> of July 2020 </p>
-					</div>
-				</div><!-- Ends: .single courses -->
-            </div>
         </div><!--End .row-->
 
 
@@ -270,45 +222,34 @@
 				<div class="news-item-box">
 					<h3 class="section-h-medium">Latest News</h3>
 					<div class="single-item">
-						<div class="img-box">
-							<img src="images/index-04/latest_news.jpg" alt="" class="img-responsive">
-						</div>
-						<div class="news-content">
-							<h3><a href="#">the future of Web Design</a></h3>
-							<p class="news-time">
-								<span>
-									<i class="fa fa-calendar event-icon"></i>
-									12 July, 2019
-								</span>
-								<span>
-									<i class="fa fa-user"></i>
-									John Doe
-								</span>
-								<span>
-									<i class="fa fa-comment"></i>
-									12
-								</span>
-							</p>
-						</div>
-						<div class="news-content">
-							<h3><a href="#">Online Learning Glossary</a></h3>
-							<p class="news-time">
-								<span>
-									<i class="fa fa-calendar event-icon"></i>
-									12 July, 2019
-								</span>
-								<span>
-									<i class="fa fa-user"></i>
-									John Doe
-								</span>
-								<span>
-									<i class="fa fa-comment"></i>
-									12
-								</span>
-							</p>
-						</div>
+
+                        @foreach ($newss as $news)
+                           <div class="news-content">
+                            <div class="col-12">
+                                <div class="col-5"><img src="/{{ $news->image }}" alt="" class="img-responsive" height="200" width="200" ></div>
+                                <div class="col"></div>
+                                <div class="col-6">
+                                    <h3><a href="blog/{{ $news->id }}">{{ $news->title }}</a></h3>
+                                    <p class="news-time">
+                                        <span>
+                                            <i class="fa fa-calendar event-icon"></i>
+                                            {{ $news->created_at }}
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-user"></i>
+                                           {{ $news->poster }}
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+
+
+
+
 					</div>
-					<a class="readmore-btn" href="#">View All News<i class="fa fa-long-arrow-right readmore-btn-icon"></i></a>
+					<a class="readmore-btn" href="/blog">View All News<i class="fa fa-long-arrow-right readmore-btn-icon"></i></a>
 				</div>
 			</div>
 

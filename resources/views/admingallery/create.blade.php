@@ -9,6 +9,7 @@
 </div>
 <!-- Loading ends -->
 
+
 <!-- Page wrapper start -->
 <div class="page-wrapper">
 
@@ -27,7 +28,7 @@
         <div class="page-header">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item active">Update News</li>
+                <li class="breadcrumb-item active">Add Gallery</li>
             </ol>
         </div>
         <!-- Page header end -->
@@ -39,31 +40,21 @@
     <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-            <form action="{{ route('adminblog.update',[$news->id]) }}" method="POST">
+            <form action="{{ action('admingalleryController@store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="id" value={{ $news->id }}>
                 <div class="form-group">
-                    <label for="title">News Title</label>
-                    <input type="text" name="title" required id="" value="{{ $news->title }}" class="form-control">
+                    <label for="title">Image Caption</label>
+                    <input type="text" required name="caption" id="" class="form-control">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="my-input">News Details</label>
-                   <textarea name="details" class="summernote" required cols="30" rows="10">{{ $news->details }}</textarea>
+                    <label for="pic">Gallery Image</label>
+                    <input type="file" required name="image" id="pic" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="title">Added By: </label>
-                   <select name="poster" required class="form-control">
-                    <option value="{{ $news->poster }}">{{ $news->poster }}</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Student">Student</option>
-                   </select>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Update News" class="btn btn-primary">
+                    <input type="submit" value="Add Image" class="btn btn-primary">
                 </div>
             </form>
 

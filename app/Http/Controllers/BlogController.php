@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\blog;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\news;
 class BlogController extends Controller
 {
     /**
@@ -15,7 +15,9 @@ class BlogController extends Controller
     public function index()
     {
         //
-        return view ('blog.index');
+        $allnews=news::latest()->paginate(5);
+        $studentnews=news::latest()->where('poster','Student')->take(5)->get();
+        return view ('blog.index',['allnews'=>$allnews,'studentnews'=>$studentnews]);
     }
 
     /**
@@ -45,13 +47,11 @@ class BlogController extends Controller
      * @param  \App\blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(blog $blog)
+    public function show($id)
     {
-        $blog=Blog::where('id',1);
-        // return view('blog.');
+        $blog=news::where('id',$id)->first();
+        return view('blog.show',['blog'=>$blog]);
 
-
-        return view('/blog_show',['blog'=>$blog]);
     }
 
     /**

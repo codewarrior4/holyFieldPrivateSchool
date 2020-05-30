@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index()
     {
         //
-        $newss=news::paginate(3);
+        $newss=news::latest()->paginate(4);
         return view('adminblog.index',['newss'=>$newss]);
     }
 
@@ -66,7 +66,7 @@ class NewsController extends Controller
             if($news)
             {
                 $file->move($destinationPath,$path);
-                $newss=news::paginate(3);
+                $newss=news::latest()->paginate(4);
                 return view('adminblog.index',['newss'=>$newss]);
 
             }
@@ -113,23 +113,23 @@ class NewsController extends Controller
         request()->validate([
             'title'=>'required','details'=>'required','poster'=>'required'
         ]);
-        $details = $request->input('details');
-        $poster = $request->input('poster');
-        $title = $request->input('title');
-        $update=news::where('id',$news->id)
+
+        $newsid=$request->input('id');
+        $update=news::where('id',$newsid)
         ->update
         ([
-            'title'=>$title,
-            'poster'=>$poster,
-            'details'=>$details
+            'title'=>$request->input('title'),
+            'poster'=>$request->input('poster'),
+            'details'=>$request->input('details')
         ]);
 
         if($update)
         {
-           return '<script>alert("News successfully updated")</script>';
+            $newss=news::latest()->paginate(4);
+        return view('adminblog.index',['newss'=>$newss]);
         }
 
-         Redirect::back()->withErrors(['msg', 'The Message']);
+
     }
 
     /**
