@@ -29,5 +29,8 @@ Route::resource('event','EventController');
 Route::resource('gallery','GalleryController');
 Route::resource('teacher','TeachersController');
 Route::resource('adminblog', 'NewsController');
+Route::get('adminblog/delete/{id}', 'NewsController@destroy');
 Route::resource('adminevent', 'adminEventController');
+Route::get('adminevent/delete/{id}', 'adminEventController@destroy');
 Route::resource('admingallery', 'admingalleryController');
+Route::get('admingallery/delete/{id}', 'admingalleryController@destroy');

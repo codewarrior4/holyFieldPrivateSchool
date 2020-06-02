@@ -51,11 +51,8 @@
                                     <div class="card-footer">
                                         <a href="{{url('/adminblog/'.$news->id.'/edit')}}" role="button" class="btn  btn-outline-primary btn-md">Edit News</a>
 
-                                        {{-- <form action="{{ action('NewsController@destroy',$news->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger"> Delete News</button>
-                                        </form> --}}
+                                        <a href="{{ url('/adminblog/delete/'.$news->id) }}" class="btn btn-outline-danger" role="button"> Delete News</a>
+
                                     </div>
                                 </div>
                              </div>

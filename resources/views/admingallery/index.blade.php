@@ -46,6 +46,9 @@
                        <div class="card-body">
                            <h5 class="card-title">{{$gallery->caption}}</h5>
                        </div>
+                       <div class="card-footer">
+                        <a href="{{ url('/admingallery/delete/'.$gallery->id) }}" class="btn btn-outline-danger" role="button"> Delete Gallery</a>
+                       </div>
                    </div>
                 @endforeach
 

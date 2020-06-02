@@ -140,6 +140,14 @@ class adminEventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event=event::where('id',$id)->first();
+        $image= $event->image;
+
+        if($event->delete())
+        {
+            unlink(public_path($image));
+            $eventslist=event::latest()->paginate(10);
+            return view('adminevent.index',['lists'=>$eventslist]);
+        }
     }
 }

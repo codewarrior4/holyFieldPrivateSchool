@@ -53,6 +53,7 @@
                           </div>
                           <div class="card-footer">
                             <a href="{{url('/adminevent/'.$event->id.'/edit')}}" role="button" class="btn  btn-outline-primary btn-md">Edit News</a>
+                            <a href="{{ url('/adminevent/delete/'.$event->id) }}" class="btn btn-outline-danger" role="button"> Delete Event</a>
                           </div>
                       </div>
                      </div>

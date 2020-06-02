@@ -141,6 +141,15 @@ class NewsController extends Controller
     public function destroy($id)
     {
         //
+        $news=news::where('id',$id)->first();
+        $image= $news->image;
+
+        if($news->delete())
+        {
+            unlink(public_path($image));
+            $newss=news::latest()->paginate(4);
+            return view('adminblog.index',['newss'=>$newss]);
+        }
 
 
     }

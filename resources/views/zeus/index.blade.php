@@ -45,7 +45,7 @@
                             <i class="icon-message-square"></i>
                         </div>
                         <div class="sale-num">
-                            <h3>6</h3>
+                            <h3>{{ $news }}</h3>
                             <p>News</p>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <i class="icon-event_available"></i>
                         </div>
                         <div class="sale-num">
-                            <h3>40</h3>
+                            <h3>{{ $events }}</h3>
                             <p>Events</p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <i class="icon-image"></i>
                         </div>
                         <div class="sale-num">
-                            <h3>17</h3>
+                            <h3>{{ $gallery }}</h3>
                             <p>Image Gallery</p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                             <i class="icon-message"></i>
                         </div>
                         <div class="sale-num">
-                            <h3>15</h3>
+                            <h3>{{ $contacts }}</h3>
                             <p>Message</p>
                         </div>
                     </div>

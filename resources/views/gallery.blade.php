@@ -62,7 +62,7 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4">
 				<div class="single-gallery">
 					<figure>
-						<img src="/{{ $gallery->image }}" alt="">
+						<img src="/{{ $gallery->image }}" height="300" width="300" alt="">
 						<figcaption>
 							<a href="/{{ $gallery->image }}" title=""><i class="fa fa-eye"></i></a>
 							<h4>Caption <span>{{ $gallery->caption }}</span></h4>

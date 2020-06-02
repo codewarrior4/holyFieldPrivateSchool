@@ -102,6 +102,14 @@ class admingalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gallery=gallery::where('id',$id)->first();
+        $image= $gallery->image;
+
+        if($gallery->delete())
+        {
+            unlink(public_path($image));
+            $galleries=gallery::latest()->paginate(12);
+            return view('admingallery.index',['galleries'=>$galleries]);
+        }
     }
 }

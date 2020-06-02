@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\adminIndex;
 use App\Contact;
+use App\news;
+use App\gallery;
+use App\event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminIndexController extends Controller
 {
@@ -15,8 +19,13 @@ class AdminIndexController extends Controller
      */
     public function index()
     {
-        //
-        return view('zeus.index');
+
+        $news=DB::table('news')->count();
+        $gallery=DB::table('gallery')->count();
+        $events=DB::table('events')->count();
+        $contacts=DB::table('contacts')->count();
+
+        return view('zeus.index',['news'=>$news,'gallery'=>$gallery,'events'=>$events,'contacts'=>$contacts]);
     }
 
     /**
